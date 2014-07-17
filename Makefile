@@ -21,6 +21,14 @@ prune : clean
 travis : $(LIBLEVELDB)
 		cabal install -f examples
 
+install-with-test-support:
+	cabal install --enable-tests
+	cabal test
+
+test:
+	cabal clean
+	cabal test
+
 $(HADDOCK) :
 		runhaskell Setup.hs haddock --hyperlink-source
 
