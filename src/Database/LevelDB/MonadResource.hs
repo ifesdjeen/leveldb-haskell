@@ -56,6 +56,7 @@ module Database.LevelDB.MonadResource
     , iterFirst
     , iterLast
     , iterNext
+    , iterEntry
     , iterPrev
     , iterKey
     , iterValue
@@ -72,7 +73,7 @@ module Database.LevelDB.MonadResource
     )
 where
 
-import           Control.Applicative          ((<$>))
+import           Control.Applicative          ((<$>), (<*>))
 import           Control.Monad.Trans.Resource
 import           Data.ByteString              (ByteString)
 import           Data.Int                     (Int64)
@@ -233,6 +234,12 @@ iterPrev = Base.iterPrev
 -- positioned at an entry, ie. 'iterValid'.
 iterKey :: MonadResource m => Iterator -> m (Maybe ByteString)
 iterKey = Base.iterKey
+
+iterEntry :: MonadResource m => Iterator -> m (Maybe (ByteString, ByteString))
+iterEntry iter = do
+    mkey <- iterKey iter
+    mval <- iterValue iter
+    return $ (,) <$> mkey <*> mval
 
 -- | Return the value for the current entry if the iterator is currently
 -- positioned at an entry, ie. 'iterValid'.
