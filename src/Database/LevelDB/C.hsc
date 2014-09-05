@@ -14,7 +14,7 @@ import Foreign
 import Foreign.C.Types
 import Foreign.C.String
 
-#include <leveldb/c.h>
+#include <hyperleveldb/c.h>
 
 data LevelDB
 data LCache
