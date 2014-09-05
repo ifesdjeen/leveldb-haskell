@@ -1,5 +1,5 @@
-name:                leveldb-haskell
-version:             0.3.0
+name:                leveldb-haskell-fork
+version:             0.3.4
 synopsis:            Haskell bindings to LevelDB
 homepage:            http://github.com/kim/leveldb-haskell
 bug-reports:         http://github.com/kim/leveldb-haskell/issues
@@ -75,7 +75,7 @@ executable leveldb-example-comparator
   build-depends:    base >= 3 && < 5
                   , transformers
                   , data-default
-                  , leveldb-haskell
+                  , leveldb-haskell-fork
 
   ghc-options:      -Wall -Werror -O -rtsopts
   ghc-prof-options: -prof -auto-all
@@ -97,7 +97,7 @@ executable leveldb-example-features
                   , transformers
                   , resourcet > 0.3.2
                   , data-default
-                  , leveldb-haskell
+                  , leveldb-haskell-fork
 
   ghc-options:      -Wall -Werror -O -rtsopts
   ghc-prof-options: -prof -auto-all
@@ -117,7 +117,7 @@ executable leveldb-example-filterpolicy
   build-depends:    base >= 3 && < 5
                   , transformers
                   , data-default
-                  , leveldb-haskell
+                  , leveldb-haskell-fork
 
   ghc-options:      -Wall -Werror -O -rtsopts
   ghc-prof-options: -prof -auto-all
@@ -138,7 +138,7 @@ executable leveldb-example-iterforkio
                   , async
                   , bytestring >= 0.10.4.0
                   , data-default
-                  , leveldb-haskell
+                  , leveldb-haskell-fork
 
   ghc-options:      -Wall -Werror -O -rtsopts
   ghc-prof-options: -prof -auto-all
@@ -157,12 +157,13 @@ test-suite tests
   type: exitcode-stdio-1.0
   hs-source-dirs: tests
   build-depends:       base >= 3 && < 5,
-                       leveldb-haskell,
+                       leveldb-haskell-fork,
                        hspec                >= 1.8,
                        process >= 1.1.0.2,
                        bytestring >= 0.10.4.0,
                        data-default,
                        transformers,
                        hspec-expectations,
-                       QuickCheck
+                       QuickCheck,
+                       mtl
   default-language:    Haskell2010
