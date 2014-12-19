@@ -348,8 +348,8 @@ foreign import ccall safe "leveldb/c.h leveldb_cache_destroy"
 -- Version
 --
 
-foreign import ccall unsafe "leveldb/c.h leveldb_major_version"
-  c_leveldb_major_version :: IO CInt
+--foreign import ccall unsafe "leveldb/c.h leveldb_major_version"
+--  c_leveldb_major_version :: IO CInt
 
-foreign import ccall unsafe "leveldb/c.h leveldb_minor_version"
-  c_leveldb_minor_version :: IO CInt
+--foreign import ccall unsafe "leveldb/c.h leveldb_minor_version"
+--  c_leveldb_minor_version :: IO CInt

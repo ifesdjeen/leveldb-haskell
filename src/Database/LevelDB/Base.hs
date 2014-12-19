@@ -51,7 +51,7 @@ module Database.LevelDB.Base
     , destroy
     , repair
     , approximateSize
-    , version
+--    , version
 
     -- * Iteration
     , module Database.LevelDB.Iterator
@@ -237,12 +237,12 @@ write (DB db_ptr _) opts batch = liftIO $ withCWriteOpts opts $ \opts_ptr ->
 
 -- | Return the runtime version of the underlying LevelDB library as a (major,
 -- minor) pair.
-version :: MonadIO m => m (Int, Int)
-version = do
-    major <- liftIO c_leveldb_major_version
-    minor <- liftIO c_leveldb_minor_version
-
-    return (cIntToInt major, cIntToInt minor)
+--version :: MonadIO m => m (Int, Int)
+-- version = do
+--    major <- liftIO c_leveldb_major_version
+--    minor <- liftIO c_leveldb_minor_version
+--
+--    return (cIntToInt major, cIntToInt minor)
 
 createBloomFilter :: MonadIO m => Int -> m BloomFilter
 createBloomFilter i = do

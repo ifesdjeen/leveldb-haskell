@@ -44,7 +44,7 @@ module Database.LevelDB.MonadResource
     , destroy
     , repair
     , approximateSize
-    , version
+--    , version
 
     -- * Iteration
     , Iterator
@@ -288,5 +288,5 @@ iterValues = Base.iterValues
 
 -- | Return the runtime version of the underlying LevelDB library as a (major,
 -- minor) pair.
-version :: MonadResource m => m (Int, Int)
-version = Base.version
+--version :: MonadResource m => m (Int, Int)
+--version = Base.version
