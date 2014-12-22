@@ -5,3 +5,7 @@ tags
 *.swp
 *.a
 *.hi
+.cabal-sandbox
+.\#*
+*sandbox.config
+*~
