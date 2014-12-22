@@ -14,7 +14,7 @@ import Foreign
 import Foreign.C.Types
 import Foreign.C.String
 
-#include <hyperleveldb/c.h>
+#include <leveldb/c.h>
 
 data LevelDB
 data LCache
@@ -342,6 +342,9 @@ foreign import ccall safe "leveldb/c.h leveldb_cache_create_lru"
 
 foreign import ccall safe "leveldb/c.h leveldb_cache_destroy"
   c_leveldb_cache_destroy :: CachePtr -> IO ()
+
+foreign import ccall safe "leveldb/c.h leveldb_env_shutdown"
+  leveldb_env_shutdown :: IO ()
 
 
 --
